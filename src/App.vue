@@ -16,6 +16,7 @@ const url = ref('')
 const hasGenerated = ref(false)
 const generatedFor = ref('')
 const qrSrc = ref('')
+const API_BASE = 'https://qr-code-generator-k00m.onrender.com'
 
 const animateGenerateSequence = () => {
   const tl = gsap.timeline()
@@ -88,7 +89,7 @@ const onGenerateClick = () => {
   }
 
   generatedFor.value = trimmed
-  qrSrc.value = '/api/qr?url=' + encodeURIComponent(trimmed)
+  qrSrc.value = API_BASE + '/api/qr?url=' + encodeURIComponent(trimmed)
   hasGenerated.value = true
 
   // Attendre que le DOM soit à jour avant d'animer le contenu
